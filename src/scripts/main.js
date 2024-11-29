@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const updateButtonsState = () => {
     const rowCount = table.rows.length;
-    const columnCount = table.rows[0]?.cells.length || 0;
+    const columnCount = rowCount > 0 ? table.rows[0].cells.length : 0;
 
     appendRowButton.disabled = rowCount >= MAX_ROWS;
     removeRowButton.disabled = rowCount <= MIN_ROWS;
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   appendRowButton.addEventListener('click', () => {
     const rowCount = table.rows.length;
-    const columnCount = table.rows[0]?.cells.length || 0;
+    const columnCount = rowCount > 0 ? table.rows[0].cells.length : 0;
 
     if (rowCount < MAX_ROWS) {
       const newRow = table.insertRow();
